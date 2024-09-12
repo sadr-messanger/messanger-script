@@ -1,0 +1,59 @@
+server_name: "sadr-neshan.ir"
+pid_file: /data/homeserver.pid
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+database:
+  name: psycopg2
+  args:
+    user: synapse
+    password: synapsepassword
+    database: synapse
+    host: 82.115.17.105  #you can use docker inspect container_name to fill host section
+    cp_min: 5
+    cp_max: 10
+log_config: "/data/example.log.config"
+media_store_path: /data/media_store
+enable_registration: True #added for use element
+enable_encryption: false
+suppress_key_server_warning: True #added for use element
+enable_registration_without_verification: True #added for use element
+registration_shared_secret: "keys"
+report_stats: true
+macaroon_secret_key: "keys"
+form_secret: "keys"
+signing_key_path: "/data/example.signing.key"
+trusted_key_servers:
+  - server_name: "sadr-neshan.ir"
+
+oidc_providers:
+  - idp_id: application
+    idp_name: "Open ID"
+    discover: false
+    issuer: "https://keyclock.sadr-neshan.ir/auth/realms/master"
+    client_id: "application"
+    client_secret: "MIICpTCCAY0CBgGRzN7ubDANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAthcHBsaWNhdGlvbjAeFw0yNDA5MDcxNDIyMjdaFw0zNDA5MDcxNDI0MDdaMBYxFDASBgNVBAMMC2FwcGxpY2F0aW9uMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl6WY0vGph4OQuZrz/AeFcJ2Dkk4xDDq8Wto/ZCAsfHKXzD9d7HSf0XWu3awTu45ECAzajRy66qmebVRFPH+WTpdUp87vWUo3Yr+qI3coa14tF87ZndD//FlPnVQhROu/sgE0m5at87fk2L+hqBAj2xThiBcRYn158zwvxC6WLAa1tAeIjQWfhcEjpEV5zhyCbs4QSCH4bcgb6mSheoIs+JlmNmoDhqogepdesrm3cZHkWcJH7z/LrPhxoMUJYF2z0S9jQdnaKwJvLe8WpNDSnOEM+Gm185ioADfKgil81cwXLOvxvr7tm+f0TvB6pDg4LoMN7DZnPAWg5dFAHxl8hQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAzrJdUtr2K4LbfuWlgOnNvJryeSslyewUNDdwQhBoTaPl/cywkcVgvxpdaFRMFvJWiPjV5uOrx1XTbHsXlDx26z5Y/VCZvUxBoecJZjDoUwURbhzz+xoZWlmaW+FghuDhzFg8zW76ulvCc1a9PF4WM9ohszZ3QfOT7Fn4rJR+3vV8o7azIjvZKbBkeryptbodvElFdFp+WRVP9eecqp3uCz2N9U2HSob+0Di8ljOP2sf3dQo/siet0cPTBGymKBKrN8WG48Xr4q56++MahhyZxCjFWMxK9jnz2HTLPt3i/G2qgNUYXNv6/xI8ijClPtWXkUgSjQE62/Oxqg+IoEEJm"
+    scopes: ["openid", "profile", "email"]
+    client_auth_method: client_secret_post
+    authorization_endpoint: "https://keyclock.sadr-neshan.ir/auth/realms/master/protocol/openid-connect/auth"
+    token_endpoint: "https://keyclock.sadr-neshan.ir/auth/realms/master/protocol/openid-connect/token"
+    userinfo_endpoint: "https://keyclock.sadr-neshan.ir/auth/realms/master/protocol/openid-connect/userinfo"
+    jwks_uri: "https://keyclock.sadr-neshan.ir/auth/realms/master/protocol/openid-connect/certs"
+
+public_baseurl: "https://sadr-neshan.ir/"
+use_forwarded_for: true
+x_forwarded: true
+trusted_proxies:
+  - "127.0.0.1"
+  - "0.0.0.0"
+
+turn_uris: [ "turn:82.115.17.105:3478?transport=udp", "turns:82.115.17.105:5349?transport=tcp" ]
+turn_shared_secret: "myturnsecret"
+turn_user_lifetime: 86400000
+turn_allow_guests: True
+

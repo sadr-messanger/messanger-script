@@ -1,0 +1,102 @@
+{
+    "default_server_config": {
+        "m.homeserver": {
+            "base_url": "https://sadr-neshan.ir",
+            "server_name": "sadr-neshan.ir"
+        }
+    },
+    "disable_custom_urls": true,
+    "brand": "پیام رسان صدر",
+    "disable_login_language_selector": true,
+    "disable_browser_warning": true,
+    "disable_mobile_prompt": true,
+    "sso_redirect_url": "https://sadr-neshan.ir/_synapse/client/oidc/callback",
+    "default_language": "fa",
+    "default_country_code": "IR",
+    "disable_guests": true,
+    "embedded_pages": {
+        "login_for_welcome": true
+    },
+    "default_user_settings": {
+        "layout": "bubble"
+    },
+    "default_theme": "light",
+    "jitsi": {
+        "preferred_domain": "meet.jitsi"
+    },
+    "voip": {
+        "turn_servers": [
+            {
+                "urls": [
+                    "turn:82.115.17.105:3478?transport=udp",
+                    "turn:82.115.17.105:5349?transport=tcp"
+                ],
+                "username": "user",
+                "credential": "myturnsecret"
+            }
+        ]
+    },
+    "setting_defaults": {
+        "language": "fa",
+        "layout": "bubble",
+        "custom_themes": [
+            {
+                "name": "Primary",
+                "is_dark": false,
+                "fonts": {
+                    "faces": [
+                        {
+                            "font-family": "Dana",
+                            "src": [
+                                {
+                                    "url": "/fonts/Dana-Regular.woff",
+                                    "format": "woff"
+                                }
+                            ]
+                        }
+                    ],
+                    "general": "Inter, sans",
+                    "monospace": "'Courier New'"
+                },
+                "colors": {
+                    "accent-color": "#3596fc",
+                    "primary-color": "#368bd6",
+                    "warning-color": "#ff4b55",
+                    "sidebar-color": "#27303a",
+                    "roomlist-background-color": "#f3f8fd",
+                    "roomlist-text-color": "#2e2f32",
+                    "roomlist-text-secondary-color": "#61708b",
+                    "roomlist-highlights-color": "#ffffff",
+                    "roomlist-separator-color": "#e3e8f0",
+                    "timeline-background-color": "#ffffff",
+                    "timeline-text-color": "#2e2f32",
+                    "timeline-text-secondary-color": "#61708b",
+                    "timeline-highlights-color": "#f3f8fd"
+                },
+                "compound": {
+                    "--cpd-color-icon-accent-tertiary": "var(--cpd-color-blue-800)",
+                    "--cpd-color-text-action-accent": "var(--cpd-color-blue-900)"
+                }
+            },
+            {
+                "name": "Deep Purple",
+                "is_dark": true,
+                "colors": {
+                    "accent-color": "#6503b3",
+                    "primary-color": "#368bd6",
+                    "warning-color": "#b30356",
+                    "sidebar-color": "#15171B",
+                    "roomlist-background-color": "#22262E",
+                    "roomlist-text-color": "#A1B2D1",
+                    "roomlist-text-secondary-color": "#EDF3FF",
+                    "roomlist-highlights-color": "#343A46",
+                    "roomlist-separator-color": "#a1b2d1",
+                    "timeline-background-color": "#181b21",
+                    "timeline-text-color": "#EDF3FF",
+                    "timeline-text-secondary-color": "#A1B2D1",
+                    "timeline-highlights-color": "#22262E"
+                }
+            }
+        ]
+    }
+}

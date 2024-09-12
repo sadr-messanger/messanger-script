@@ -1,0 +1,105 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    container_name: synapse_postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=synapse
+      - POSTGRES_USER=synapse
+      - POSTGRES_PASSWORD=synapsepassword
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  keyclock:
+    image: quay.io/keycloak/keycloak:15.0.0
+    container_name: keyclock
+    restart: always
+    ports:
+      - 1020:8080
+    environment:
+      - DB_VENDOR=h2
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_FRONTEND_URL=https://keyclock.sadr-neshan.ir/auth
+      - PROXY_ADDRESS_FORWARDING=true
+      - JAVA_OPTS=-Dkeycloak.frontendUrl=https://keyclock.sadr-neshan.ir/auth
+
+    # command: standalone.sh --start-mode
+
+  coturn:
+    image: instrumentisto/coturn
+    container_name: coturn
+    restart: always
+    ports:
+      - "3478:3478"
+      - "3478:3478/udp"
+      - "5349:5349"
+      - "5349:5349/udp"
+    environment:
+      - TURN_SERVER_NAME=sadr-neshan.ir
+      - TURN_PORT=3478
+      - TURN_LISTEN_PORT=3478
+      - TURN_MIN_PORT=49152
+      - TURN_MAX_PORT=65535
+      - TURN_SECRET=myturnsecret
+    command: >
+      --log-file stdout
+      --lt-cred-mech
+      --fingerprint
+      --use-auth-secret
+      --static-auth-secret=myturnsecret
+      --realm=sadr-neshan.ir
+      --external-ip=82.115.17.105
+
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse
+    restart: always
+    volumes:
+      - ./data:/data
+    environment:
+      - SYNAPSE_SERVER_NAME=sadr-neshan.ir
+      - SYNAPSE_REPORT_STATS=yes
+    ports:
+      - "1008:8008"
+      - "1048:8448"
+    depends_on:
+      - postgres
+      - coturn
+
+  element:
+    build:
+      context: .
+      dockerfile: ./element-config/Dockerfile
+    container_name: element
+    restart: always
+    depends_on:
+      - synapse
+    ports:
+      - "1010:80"
+    volumes:
+      - ./element-config:/app/config
+    environment:
+      - SERVER_NAME=sadr-neshan.ir
+
+  synapse-admin:
+    image: awesometechnologies/synapse-admin
+    restart: unless-stopped
+    depends_on:
+      - synapse
+    ports:
+      - 1000:80
+
+  logger:
+    build:
+      context: .
+      dockerfile: ./logger/Dockerfile
+    ports:
+      - 1011:9110
+    working_dir: /app/rageshake
+    command: ./rageshake

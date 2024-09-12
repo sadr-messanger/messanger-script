@@ -1,0 +1,46 @@
+listings_auth_user: sadr
+listings_auth_pass: 1034
+
+allowed_app_names: ["rageshake-android-azadresan"]
+
+rejection_conditions:
+  - app: my-app
+    version: "0.4.9" # if the submission has a Version which is exactly this value, reject the submission.
+  - app: my-app
+    label: "0.4.9" # if any label matches this value, the submission is rejected.
+  - app: my-app
+    version: "0.4.9"
+    label: "nightly" # both label and Version must match for this condition to be true
+
+github_token: secrettoken
+
+github_project_mappings:
+   my-app: octocat/HelloWorld
+
+gitlab_token: secrettoken
+gitlab_url: https://gitlab.com
+
+gitlab_project_mappings:
+  my-app: 12345
+gitlab_project_labels:
+  my-app:
+    - client::my-app
+gitlab_issue_confidential: true
+
+slack_webhook_url: https://hooks.slack.com/services/TTTTTTT/XXXXXXXXXX/YYYYYYYYYYY
+
+email_addresses:
+  - support@matrix.org
+
+email_from: Rageshake <rageshake@matrix.org>
+
+smtp_server: localhost:25
+smtp_username: myemailuser
+smtp_password: myemailpass
+
+generic_webhook_urls: 
+  - https://server.example.com/your-server/api
+  - http://another-server.com/api
+
+issue_body_template_file: ./issue_body.tmpl
+email_body_template_file: ./email_body.tmpl
