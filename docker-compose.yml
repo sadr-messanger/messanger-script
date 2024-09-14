@@ -103,3 +103,15 @@ services:
       - 1011:9110
     working_dir: /app/rageshake
     command: ./rageshake
+
+  synapse-admin:
+    build:
+      context: https://github.com/sadr-messanger/admin-panel.git
+      dockerfile: Dockerfile
+    container_name: admin
+    depends_on:
+      - synapse
+    ports:
+      - 1000:4173
+    environment:
+      - VITE_API_URL=https://sadr-neshan.ir

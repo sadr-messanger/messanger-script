@@ -1,0 +1,279 @@
+.mx_AccessibleButton.mx_AccessibleButton_hasKind.mx_AccessibleButton_kind_danger_outline {
+    font-size: 0;
+}
+
+.mx_AccessibleButton.mx_AccessibleButton_hasKind.mx_AccessibleButton_kind_danger_outline::before {
+    content: "بازنشانی و ایجاد کلید جدید";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mx_UnknownBody {
+    font-size: 0;
+}
+
+.mx_UnknownBody::before {
+    content: "کلید شما معتبر نمیباشد. لطفا کلید دریافت شده در دستگاه دیگری که به آن وارد شدید را وارد کنید.";
+    width: 150px;
+    position: relative;
+    font-size: 12px;
+    color: black;
+}
+
+.mx_SettingsTab.mx_LabsUserSettingsTab .mx_SettingsTab_subsectionText span {
+    font-size: 0;
+}
+
+.mx_SettingsTab.mx_LabsUserSettingsTab .mx_SettingsTab_subsectionText span::before {
+    content: "ویژگی‌های جدید و بهینه‌تر را میتوانید در این قسمت مشاهده کرده و در مورد آنها بیشتر بخوانید.";
+    font-size: 14px;
+    color: black;
+}
+
+.mx_UnknownBody {
+    font-size: 0;
+}
+
+.mx_UnknownBody::before {
+    content: "کلید شما معتبر نمیباشد. لطفا کلید دریافت شده در دستگاه دیگری که به آن وارد شدید را وارد کنید.";
+    width: 150px;
+    position: relative;
+    font-size: 12px;
+    color: black;
+}
+
+.mx_EventTile[data-layout=bubble] .mx_ReadReceiptGroup {
+    inset-inline-end: unset !important;
+}
+
+li.mx_GenericEventListSummary {
+    margin-right: 0 !important;
+    padding: 0 !important;
+}
+
+.mx_GenericEventListSummary[data-layout=bubble] .mx_GenericEventListSummary_toggle {
+    margin-right: -60px;
+}
+
+.mx_EventTile[data-layout=bubble] .mx_ReadReceiptGroup {
+    position: absolute;
+    bottom: calc(.9rem - 12px);
+    top: auto;
+}
+
+:checked+._ui_qnvru_42:after {
+    transform: translateX(-100%) !important;
+}
+
+.mx_ToggleSwitch.mx_ToggleSwitch_on>.mx_ToggleSwitch_ball {
+    left: calc(-100% + 2rem) !important;
+}
+
+.mx_SpacePanel {
+    direction: ltr !important;
+}
+
+.mx_SpacePanel .mx_SpacePanel_toggleCollapse {
+    right: unset;
+    left: -8px;
+}
+
+.mx_TabbedView_tabPanel {
+    margin: 0 !important;
+    margin-right: 240px !important;
+}
+
+.mx_MessageComposer {
+    direction: ltr !important;
+}
+
+@font-face {
+    font-family: Dana;
+    src: url(fonts/Dana-Regular.woff);
+}
+
+* {
+    font-family: Dana !important;
+}
+
+.mx_AuthPage * {
+    direction: rtl;
+    text-align: start;
+}
+
+.mx_AuthPage input[type='submit'] {
+    text-align: center !important;
+}
+
+.mx_AuthFooter {
+    display: none;
+}
+
+.mx_Field.mx_Field_select {
+    display: none;
+}
+
+.mx_AccessibleButton.mx_LeftPanel_exploreButton {
+    margin-left: 0px !important;
+}
+
+.mx_AccessibleButton.mx_RoomSearch.mx_RoomSearch_spotlightTrigger {
+    padding: 1px 6px;
+}
+
+.mx_LeftPanel_filterContainer {
+    gap: 6px;
+}
+
+.mx_Field label {
+    left: unset;
+    right: 0;
+}
+
+.mx_HomePage_default_wrapper {
+    display: none;
+}
+
+.mx_AccessibleButton.mx_RoomListHeader_contextMenuButton {
+    margin-right: 8px;
+    margin-left: auto;
+    position: relative;
+    padding: 1px 4px 1px 24px;
+}
+
+.mx_RoomListHeader .mx_RoomListHeader_contextMenuButton::before {
+    right: 0 !important;
+    display: none;
+}
+
+.mx_RoomListHeader .mx_RoomListHeader_contextMenuButton::after {
+    content: "sdv";
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    left: 0;
+    display: block;
+    position: absolute;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background-color: #8d97a5;
+    -webkit-mask-image: url(https://web.sadr-neshan.ir/img/feather-customised/chevron-down.5278abe.svg);
+    mask-image: url(https://web.sadr-neshan.ir/img/feather-customised/chevron-down.5278abe.svg);
+}
+
+.mx_RoomListHeader {
+    margin: 12px 4px 0 4px;
+}
+
+.mx_RoomTile_badgeContainer {
+    margin-left: 8px !important;
+}
+
+span.mx_RoomSublist_collapseBtn {
+    margin: 0 0 0 6px;
+}
+
+::before {}
+
+.mx_SpacePanel .mx_SpacePanel_toggleCollapse:before {
+    transform: rotate(90deg);
+}
+
+.mx_SpacePanel .mx_SpacePanel_toggleCollapse.expanded:before {
+    transform: rotate(-90deg);
+}
+
+.mx_UserMenu {
+    margin: 12px 18px 4px 14px;
+}
+
+.mx_AccessibleButton.mx_Dialog_cancelButton {
+    left: 0;
+    right: unset;
+    background: grey;
+}
+
+.mx_Dialog_header.mx_Dialog_headerWithCancel {
+    padding: 0;
+}
+
+.mx_TabbedView {
+    padding: 0 16px 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 8px 0 0;
+}
+
+.mx_TabbedView_tabsOnLeft .mx_TabbedView_maskedIcon {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    margin-left: 16px;
+}
+
+.mx_SettingsTab {
+    padding: 0px 0px 0px 100px !important;
+}
+
+span.mx_BaseAvatar_initial {
+    right: 0 !important;
+    left: unset !important;
+}
+
+.mx_EventTile[data-layout=bubble][data-self=false] .mx_EventTile_avatar {
+    right: -34px;
+}
+
+.mx_EventTile[data-layout=bubble][data-self=true] .mx_EventTile_avatar {
+    left: -35px !important;
+    right: unset;
+}
+
+.mx_EventTile[data-layout=bubble] .mx_MessageActionBar {}
+
+.mx_MessageActionBar {
+    width: fit-content;
+}
+
+.mx_EventTile[data-layout=bubble][data-self=false] .mx_MessageActionBar {
+    margin-right: 24px;
+}
+
+span.mx_BaseAvatar {}
+
+.mx_EventTile_lastInSection[data-self=false].mx_EventTile[data-layout=bubble] .mx_EventTile_line>a {
+    left: 0;
+    right: unset;
+}
+
+.mx_SpaceCreateMenu_wrapper .mx_ContextualMenu_background {
+    right: 68px;
+    left: unset;
+}
+
+.mx_SpaceCreateMenu_wrapper .mx_ContextualMenu {}
+
+.mx_ContextualMenu_wrapper.mx_SpaceCreateMenu_wrapper {
+    right: 72px;
+    left: unset;
+}
+
+.mx_JumpToBottomButton {
+    z-index: 1000;
+    position: absolute;
+    bottom: 12px;
+    left: 24px;
+    right: unset;
+    width: 38px;
+    height: 50px;
+    text-align: center;
+}
